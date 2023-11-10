@@ -1,0 +1,62 @@
+{% extends "dream_realm/base.html" %}
+{% load static%}
+{% block title %}Home
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <form>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/J_Cole.jpg' %}" class="jcole_image"
+                         alt="J Cole Image">
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>J Cole</h1>
+                         <div class="column">
+                          <div class="header">Background</div>
+                          <div class="text">
+                            Jermaine Cole, known as J. Cole, was born in Frankfurt, Germany,
+                              but he proudly calls Fayetteville, North Carolina, his home.
+                              He grew up in a multicultural environment, which influenced his music and perspective.
+                          </div>
+                        </div>
+                        <div class="column">
+                          <div class="header">Education</div>
+                          <div class="text">
+                            J. Cole's commitment to education is impressive.
+                              He graduated from high school with a remarkable 4.2 GPA and earned a scholarship to
+                              attend Saint John’s University in New York.
+                              There, he majored in business and communication and graduated magna cum laude with a 3.8 GPA.
+                          </div>
+                        </div>
+                        <div class="column">
+                          <div class="header">Lyricism</div>
+                          <div class="text">
+                            J. Cole stands out in the world of rap for his exceptional lyricism.
+                              His songs delve into various topics, from personal struggles and societal issues to his
+                              journey to success.
+                              Many consider him one of the best lyricists of our time due to his ability to tell
+                              compelling stories through his music.
+                          </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fan Community -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="fan-community-section">
+                        <h2>Fan Community</h2>
+                        <p>Join our fan community to connect with other fans, discuss music, and more!</p>
+                        <a href="{% url 'realm_forum:forum_home' %}" class="btn btn-primary">Visit Fan Forum</a>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

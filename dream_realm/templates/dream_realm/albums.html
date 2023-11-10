@@ -1,0 +1,28 @@
+{% extends "dream_realm/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+    <div class="row">
+        <!-- Albums -->
+        {% for album in albums %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ album.cover_image.url }}" class="card-img-top" alt="Album cover">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{% url 'dream_realm:album_detail' album.id %}">{{ album.title }}</a></h5>
+                        <p class="card-text">{{ album.release_date }}</p>
+                        <a href="{{ album.spotify_link }}" class="btn btn-primary">Listen on Spotify</a>
+                        {% if album.is_favorite %}
+                            <i class="fas fa-heart text-danger"></i>
+                        {% else %}
+                            <i class="far fa-heart"></i>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

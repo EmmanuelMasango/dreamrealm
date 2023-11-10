@@ -1,0 +1,35 @@
+{% extends "dream_realm/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <!-- Album Cover Image -->
+                <img src="{{ album.cover_image.url }}" class="card-img" alt="Album cover">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <!-- Album Tite -->
+                    <h2 class="card-title">{{ album.title }}</h2>
+                    <!-- Album Description -->
+                    <p class="card-text">{{ album.description }}</p>
+                    <!-- Release Date -->
+                    <p class="card-text"><small class="text-muted">Release Date: {{ album.release_date }}</small></p>
+                    <a href="{{ album.spotify_link }}" class="btn btn-primary">Listen on Spotify</a>
+                    <br>
+                     <!-- Add to Favorites or Remove from Favorites Button -->
+                    {% with is_favorite=is_favorite %}
+                        {% if is_favorite %}
+                            <a href="{% url 'dream_realm:remove_favorite' album.id %}" class="btn btn-danger">Remove from Favorites</a>
+                        {% else %}
+                            <a href="{% url 'dream_realm:add_favorite' album.id %}" class="btn btn-success">Add to Favorites</a>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

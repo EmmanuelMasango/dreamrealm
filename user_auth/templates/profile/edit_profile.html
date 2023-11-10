@@ -1,0 +1,15 @@
+{% extends "authentication/base.html" %}
+
+{% block title %} Update Profile {% endblock %}
+
+<!-- Edit Profile-->
+{% block content %}
+    <div class="card">
+        <h1 class="page-title">Update Your Profile</h1>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Update Profile" class="btn btn-primary">
+        </form>
+    </div>
+{% endblock %}

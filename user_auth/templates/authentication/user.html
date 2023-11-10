@@ -1,0 +1,67 @@
+{% extends "authentication/base.html" %}
+
+{% block title %} Your Profile {% endblock %}
+{% block content %}
+    {% if profile.is_new %}
+        <div class="container mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Create Your Profile</h3>
+                    <p class="card-text">Looks like you haven't yet created your profile! Click the link below to get started.</p>
+                    <a class="btn btn-primary" href="{% url 'user_auth:edit_profile' %}">Create Profile</a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img class="card-img-top rounded-circle img-fluid profile-photo" src="{{ profile.avatar.url }}" alt="{{ profile.first_name }} {{ profile.last_name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ profile.first_name }} {{ profile.last_name }}</h5>
+                            <p class="card-text">Username:{{ user.username }}</p>
+                            <p class="card-text">Date of Birth: {{ profile.date_of_birth }}</p>
+                            <p class="card-text">Email: {{ profile.email }}</p>
+                            <p class="card-text">Bio: {{ profile.bio }}</p>
+                            <a class="btn btn-primary" href="{% url 'user_auth:edit_profile' %}">Edit Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Favorite Albums Card -->
+                <div class="col-md-6">
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Favorite Albums</h5>
+                            <div class="row">
+                                {% for favorite in user.favoritealbum_set.all %}
+                                <div class="col-4">
+                                    <div class="album-card">
+                                        <a href="{% url 'dream_realm:album_detail' favorite.album.id %}">
+                                            <img class="img-fluid album-cover" src="{{ favorite.album.cover_image.url }}" alt="{{ favorite.album.title }}">
+                                            <h6>{{ favorite.album.title }}</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                <!-- Displays users Posts can click on them to view them in forums -->
+                <div class="card-body">
+                    <h5 class="card-title">Your Posts</h5>
+                    <div class="list-group">
+                        {% for post in user.post_set.all %}
+                            <a href="{% url 'realm_forum:view_post' post.id %}" class="list-group-item list-group-item-action">
+                                {{ post.title }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

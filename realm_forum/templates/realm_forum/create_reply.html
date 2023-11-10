@@ -1,0 +1,43 @@
+{% extends 'dream_realm/base.html' %}
+
+{% block content %}
+<!-- Post Title and its Replies-->
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h1>{{ post.title }}</h1>
+        <p>Posted by: {{ post.user.username }} | {{ post.created_at }}</p>
+      </div>
+      <div class="card-body">
+        {{ post.content|safe }}
+      </div>
+    </div>
+
+    <div class="card-deck">
+      {% for reply in replies %}
+        <div class="card">
+          <div class="card-header">
+            <h3>Reply</h3>
+            <p>Posted by: {{ reply.user.username }} | {{ reply.created_at }}</p>
+          </div>
+          <div class="card-body">
+            {{ reply.content|safe }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <form method="post" class="card">
+      {% csrf_token %}
+      <div class="card-header">
+        <h2>Reply to Post</h2>
+      </div>
+      <div class="card-body">
+        {{ form.as_p }}
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Submit Reply</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

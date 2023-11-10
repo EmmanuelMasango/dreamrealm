@@ -1,0 +1,66 @@
+{% extends 'dream_realm/base.html' %}
+
+<div class="card">
+  <div class="card-body">
+    {% block content %}
+      <!-- Post Card -->
+      <div class="card mb-3">
+        <div class="card-body">
+          <!-- Post Title -->
+          <h1>{{ post.title }}</h1>
+
+          <!-- Post Content (use |safe to render HTML) -->
+          <p>{{ post.content|safe }}</p>
+
+          <!-- Post Author and Created Date -->
+          <p>Posted by: {{ post.user.username }} | {{ post.created_at }}</p>
+        </div>
+      </div>
+
+      <!-- Replies Section -->
+      <h2>Replies</h2>
+
+      <!-- Container for Replies -->
+      <div class="container">
+        {% for reply in replies %}
+          <!-- Reply Card -->
+          <div class="card mb-3">
+            <div class="card-body">
+              <!-- Reply Author Info -->
+              <div class="user-info">
+                <!-- User Profile Image (avatar) -->
+                <div class="profile-image float-left mr-2">
+                  <img src="{{ reply.user.profile.avatar.url }}" alt="{{ reply.user.username }}" class="img-fluid rounded-circle profile-img">
+                </div>
+
+                <!-- Reply Author and Created Date -->
+                <p class="user-details">
+                  <span>Posted by: {{ reply.user.username }}</span>
+                  <span class="ml-2">{{ reply.created_at }}</span>
+                </p>
+              </div>
+
+              <!-- Reply Content (use |safe to render HTML) -->
+              <p>{{ reply.content|safe }}</p>
+
+              <!-- Like/Unlike Button with Likes Label -->
+              <div class="text-right">
+                <a href="{% url 'realm_forum:upvote_reply' reply.id %}" class="btn btn-primary btn-sm">
+                  {% if user in reply.upvotes.all %}
+                    Unlike
+                  {% else %}
+                    Like
+                  {% endif %}
+                </a>
+                <span class="ml-2">{{ reply.upvotes.all.count }} Likes</span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Reply to Post Button -->
+      <a href="{% url 'realm_forum:create_reply' post.id %}" class="btn btn-primary">Reply to Post</a>
+    {% endblock %}
+  </div>
+</div>
