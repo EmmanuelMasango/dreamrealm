@@ -45,8 +45,9 @@ pip install -r requirements.txt
 4. Apply Database Migrations
 Run Django migrations to apply the database schema:
 python manage.py migrate
+python manage.py makemigrations
 
-5. Run the Development Server
+6. Run the Development Server
 Start the Django development server:
 python manage.py runserver
 
