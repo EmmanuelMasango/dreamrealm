@@ -77,7 +77,7 @@ You can access the forums page by going back to the home page and clicking on th
 ## GitHub Repository
 
 Repository: dreamrealm
-https://github.com/EmmanuelMasango/dreamrealm
+[https://github.com/EmmanuelMasango/dreamrealm](https://github.com/EmmanuelMasango/dreamrealm/tree/master)
 
 ## Additional Notes 
 Dreamrealm project is stored in master branch 
