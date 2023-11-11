@@ -1,5 +1,5 @@
 """
-WSGI config for capstone_project project.
+WSGI config for dream_realm project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'capstone_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dreamrealm.settings')
 
 application = get_wsgi_application()
