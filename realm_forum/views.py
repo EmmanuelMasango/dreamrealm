@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 def forum_home(request):
     """
-    Display the forum home page with a list of posts.
+    Displays the forum home page with a list of posts.
 
     This view retrieves all posts ordered by their creation date and renders
     them on the forum home page.
