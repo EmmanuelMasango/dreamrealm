@@ -5,13 +5,13 @@ from django.contrib.auth.decorators import login_required
 
 def base_view(request):
     """
-    Render the base view for the application's index page.
+    Renders the base view for the application's index page.
 
     Args:
        request (HttpRequest): The request object.
 
     Returns:
-       HttpResponse: Rendered HTML response for the index page.
+       HttpResponse: Rendered HTML response for the index  dream_repage.
     """
     return render(request, 'dream_realm/index.html')
 
