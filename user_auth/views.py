@@ -124,7 +124,7 @@ def edit_profile(request):
 @login_required
 def show_user(request):
     """
-    Display the user's profile.
+    Displays the user's profile.
 
     Args:
         request (HttpRequest): The request object.
