@@ -27,7 +27,7 @@ Dreamrealm is a Django project that showcases early understanding of Django, HTM
    virtualenv venv
 
    For Windows: .\venv\Scripts\activate
-   For Linux/Unix source venv/bin/activate
+   For Linux/Unix or Gitbash: source venv/bin/activate
    
    pip install -r requirements.txt
 
