@@ -1,84 +1,90 @@
 # dreamrealm
-
-Dreamrealm is a Django project that showcases my early understanding of Django, HTML, and CSS. It consists of three apps: dream_realm, realm_forum, and user_auth.
-
-The dream_realm app handles the home page and the albums page. The albums page contains details of J Cole's various albums.
-
-The realm_forum app handles the forums page, which has various forum-related functions such as creating a post, replying to a post, and liking a reply made by the user.
-
-The user_auth app handles all user authentication needed for the project. It allows users to register, log in, and create profiles.
-
-In other words, Dreamrealm is a Django project that allows users to create and view forum threads, as well as view information about J Cole's albums.
+Dreamrealm is a Django project that showcases early understanding of Django, HTML, and CSS. It consists of three apps: `dream_realm`, `realm_forum`, and `user_auth`.
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [GitHub Repository](#github-repository)
+- [Repository Links](#repository-links)
 - [Additional Notes](#additional-notes)
 
-- ## Installation
+## Installation
 
-Prerequisites
-1. Python: Ensure that you have Python installed on your machine. You can download it from python.org.
-   Git:Make sure you have Git installed. You can download it from git-scm.com.
-   Pycharm(Recommended but optional) You can install it from https://www.jetbrains.com/help/pycharm/installation-guide.html
+### Prerequisites
 
-Download the zip file from github containing the project clone the project
-To Clone the Repository do the Following 
-Open your terminal or command prompt.
-Clone the repository to your local machine:
+1. **Python**: Ensure that you have Python installed on your machine. [Download Python](https://www.python.org/downloads/).
+2. **Git**: Make sure you have Git installed. [Download Git](https://git-scm.com/downloads).
+3. **Docker**: Install Docker on your machine. [Download Docker](https://www.docker.com/products/docker-desktop).
+4. **PyCharm (Optional but recommended)**: [Install PyCharm](https://www.jetbrains.com/help/pycharm/installation-guide.html).
 
-2. Virtual Environment (Optional):It's recommended to use a virtual environment to isolate project dependencies. Install virtualenv using: pip install virtualenv
+### Download and Setup
+#### Using Venv(Optional)
+1. **Clone the Repository:**
+   ```In bash
+   git clone https://github.com/EmmanuelMasango/dreamrealm.git
 
+   cd dreamrealm
+   virtualenv venv
 
-Set Up Virtual Environment (Optional)
-Change directory to the project folder:
-Create a virtual environment:
-Activate the virtual environment:
+   For Windows: .\venv\Scripts\activate
+   For Linux/Unix source venv/bin/activate
+   
+   pip install -r requirements.txt
 
-3. Install Dependencies 
-Ensure you are in the project directory and the virtual environment is activated.
-Install project dependencies:
-pip install -r requirements.txt
+2. **Apply Database Migrations:**
+   ```In bash
+   python manage.py migrate
+   python manage.py makemigrations
 
-4. Apply Database Migrations
-Run Django migrations to apply the database schema:
-- python manage.py migrate
-- python manage.py makemigrations
-
-6. Run the Development Server
-Start the Django development server:
-python manage.py runserver
+3. **Run the devlopment server:**
+   ```In bash
+   python manage.py runserver
 
 Open your web browser and go to http://localhost:8000/ to view the project.
 
+#### Using Docker
+1. **Run with Docker (Alternative):**
+    ```In bash
+    docker build -t dreamrealm:latest .
+
+    docker run -p 8000:8000 dreamrealm:latest
+
+Open your web browser and go to http://localhost:8000/ to access the Dreamrealm Django project running in the Docker container.
 
 ## Usage
-When you runserver you will find yourself on the home page below.
-![home](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/f5f72e80-9691-4f2f-950d-a80f3a017409)
 
-As you can see in the footer there are 2 buttons login and register.
-Login or register as most functions on this website requrire you to be logged in.
+1. After running the server, find yourself on the home page.
+2. In the footer, there are login and register buttons. Login or register as most functions require you to be logged in.
+3. Once logged in, you will be redirected to your user page. If you are a new user, create your user page.
+4. Access and interact with the albums and forums page from the navigation panel.
 
-![login](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/ec8d8652-8530-4357-a2bc-352e6ccd2c0c)
+![Screenshot 2023-11-11 165906](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/fd6a4c8c-01d9-48a3-a7fe-4a3fe9fa2605)
 
-![register](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/c6923d6c-ccd0-4533-b245-6d5c7e6da160)
+![Screenshot 2023-11-11 165951](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/6016fc96-252a-4e97-908f-2ab496a4f3dc)
 
-Once done you will be redirected to your user page. If you are a new user you can create your user page.
-![profile](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/ca2f3b82-2d2d-4d4c-b852-ab8ead732407)
+![Screenshot 2023-11-11 170045](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/4bbea7fa-aa78-4324-99b4-4d66cc3572e3)
 
-![updateprofile](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/2e6dabf1-6578-41c3-9698-c3e7e20fd3db)
-Once you have all that completed we can go to access and interact with the albums and forums page. You can access the albums page from the navigation panel at the top of your page. You can select albums to view more details on the album.
-![albumspage](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/b66d8e4f-b465-4715-8f9c-3282a49885ca)
+![updateprofile](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/8df2a34c-f4d4-49c7-a1b3-93d3a1b2884c)
 
-You can access the forums page by going back to the home page and clicking on the forums button. on the forums page you will have the option to view posts, create posts and replay to posts. 
-![Screenshot 2023-11-11 170407](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/ec0f91b8-36bd-4b68-ad61-262d41c80332)
+![profile](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/bc26a40c-bb46-4a2d-afa0-db5f94489d22)
 
-## GitHub Repository
+### Albums Page
+Navigate to the albums page from the top navigation panel.
+Select albums to view more details on each album.
+
+### Forums Page
+Go back to the home page and click on the forums button in the navigation panel.
+On the forums page, you can view posts, create posts, and reply to posts.
+
+![Screenshot 2023-11-11 170407](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/94330c60-62bc-4223-a4c5-94950c57ea83)
+
+![albumspage](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/4003bcac-8563-4e71-9270-8a8b70009cd5)
+
+## Repository Links
 
 Repository: dreamrealm
-[https://github.com/EmmanuelMasango/dreamrealm](https://github.com/EmmanuelMasango/dreamrealm/tree/master)
+[https://github.com/EmmanuelMasango/dreamrealm](https://github.com/EmmanuelMasango/dreamrealm)
+[https://hub.docker.com/repository/docker/emmanuelmasango/dreamrealm/general](https://hub.docker.com/repository/docker/emmanuelmasango/dreamrealm/general)
 
 ## Additional Notes 
 Dreamrealm project is stored in master branch 
