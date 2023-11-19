@@ -76,9 +76,10 @@ Select albums to view more details on each album.
 Go back to the home page and click on the forums button in the navigation panel.
 On the forums page, you can view posts, create posts, and reply to posts.
 
+![albumspage](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/4003bcac-8563-4e71-9270-8a8b70009cd5)
+
 ![Screenshot 2023-11-11 170407](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/94330c60-62bc-4223-a4c5-94950c57ea83)
 
-![albumspage](https://github.com/EmmanuelMasango/dreamrealm/assets/115074093/4003bcac-8563-4e71-9270-8a8b70009cd5)
 
 ## Repository Links
 
