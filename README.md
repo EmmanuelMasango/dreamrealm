@@ -53,8 +53,8 @@ Open your web browser and go to http://localhost:8000/ to access the Dreamrealm 
 
 ## Usage
 
-1. After running the server, find yourself on the home page.
-2. In the footer, there are login and register buttons. Login or register as most functions require you to be logged in.
+1. After running the server, you will find yourself on the home page.
+2. In the footer, there are the login and register buttons. Login or register as most functions require you to be logged in.
 3. Once logged in, you will be redirected to your user page. If you are a new user, create your user page.
 4. Access and interact with the albums and forums page from the navigation panel.
 
